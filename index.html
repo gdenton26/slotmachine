@@ -1,0 +1,47 @@
+<! doctype html>
+<!-- rollstats.html       Garrett Denton-->
+<!-- This page will roll a slot machine -->
+<html>
+<head>
+    <title> Garrett's Slot Machine</title>
+    <script src="http://compsciconcepts.com/random.js"></script>
+    <script>
+        credits=30;
+    function SpinSlot() {
+        spin1 =
+            RandomOneOf(['http://compsciconcepts.com/Images/lemon.png', 'http://compsciconcepts.com/Images/melon.png', 'http://compsciconcepts.com/Images/banana.png', 'http://compsciconcepts.com/Images/cherry.png'])
+        spin2 =
+            RandomOneOf(['http://compsciconcepts.com/Images/lemon.png', 'http://compsciconcepts.com/Images/melon.png', 'http://compsciconcepts.com/Images/banana.png', 'http://compsciconcepts.com/Images/cherry.png'])
+        spin3 =
+            RandomOneOf(['http://compsciconcepts.com/Images/lemon.png', 'http://compsciconcepts.com/Images/melon.png', 'http://compsciconcepts.com/Images/banana.png', 'http://compsciconcepts.com/Images/cherry.png'])
+        slot1IMG.src = spin1;
+        slot2IMG.src = spin2;
+        slot3IMG.src = spin3;
+        if(credits>0)
+            
+            {
+               if(spin1==spin2 && spin2==spin3)
+                {
+                    alert('You Won 15 Credits!');
+                        credits+=16;
+                    }
+                    credits--;
+            }
+       else
+           {alert('Insuffecient Credits!');}
+        alertSPAN.innerHTML= credits;
+    }
+    </script>
+    </head>
+<body style="text-align: center">
+<h2> Garrett's Slot Machine</h2>   
+    <img id="slot1IMG" src="http://compsciconcepts.com/Images/lemon.png">
+    <img id="slot2IMG" src="http://compsciconcepts.com/Images/cherry.png">
+    <img id="slot3IMG" src="http://compsciconcepts.com/Images/banana.png">
+    <br>
+    <button onclick="SpinSlot()"> Click to Spin!</button>
+    <p> Credits: <span id="alertSPAN">30</span></p>
+    
+</body>
+
+</html>
